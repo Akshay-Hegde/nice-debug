@@ -1,0 +1,31 @@
+#codeigniter_profiler { overflow: hidden; top: 0; bottom: 0; left: 0; position: fixed; width: 360px; padding: 0px 10px 0px 10px !important; left: -372px; z-index: 99999999; box-shadow: 4px 0px 15px #000; }
+#codeigniter_profiler > .head-divider { width: 100%; float: left; height: 2px; margin-left: -10px; padding-right: 10px; }
+#codeigniter_profiler > #log { margin-left: -10px; padding-right: 10px; position: absolute; top: 34px; left: 0px; bottom: 0px; right: 0px; overflow: hidden; width: 100%; margin-right: 10px; }
+#codeigniter_profiler > #log > #log-padding { height: 100%; margin-right: -10px; padding-left: 10px; padding-right: 20px; overflow-y: scroll; overflow-x: hidden; width: 100%;}
+#codeigniter_profiler > #log > #log-padding > div { /* fix ridiculous height for now */ max-height: 400px; /* fix ridiculous height for now */ margin-left: -2px; padding-right: 40px; width: 100%; min-height: 200px; padding-left: 10px !important; overflow-x: hidden !important; oveflow-y: scroll !important; }
+#codeigniter_profiler > #profiler_arrow { position: absolute; right: 0px; top: 0px; bottom: 0px; width: 20px; z-index: 999999; cursor: pointer; }
+#codeigniter_profiler > #profiler_arrow > #arrow_icon { position: absolute; right: 0px; top: 50%; height: 20px; width: 10px; background: url('../img/double-arrow-right.png') no-repeat; z-index: 999999; cursor: pointer; }
+#codeigniter_profiler > #profiler_close { position: absolute; right: 0px; top: 50%; height: 20px; width: 10px; background: url('../img/double-arrow-left.png') no-repeat; z-index: 999999; cursor: pointer; display: none; }
+#codeigniter_profiler > h1 { font-family: arial; margin: 10px 0px 0px -10px; padding: 0px 10px 5px 10px; font-size: 14px; line-height: 18px; font-weight: bold; }
+#log-padding > h3 { cursor: pointer; font-family: Arial; font-size: 13px; font-weight: bold; line-height: 14px; margin: 5px 0 0; padding: 10px; width: 100%; }
+#codeigniter_profiler table { float: left; }
+#codeigniter_profiler table tbody { float: left; width: 100%; }
+#codeigniter_profiler table tbody tr { float: left; width: 100%; border: 0px !important; }
+#codeigniter_profiler table tr td { text-align:left; padding: 0px !important; font-size: 11px; font-style: normal; word-wrap: break-word; }
+#codeigniter_profiler table.not-db tr td { float: left; }
+#codeigniter_profiler table.not-db tr td:first-child { width: 45%; }
+#codeigniter_profiler table.not-db tr td:last-child { width: 55%; }
+#codeigniter_profiler table tr td code { border: none !important; box-shadow: none !important; }
+#codeigniter_profiler table tr td code span { float: left; }
+#codeigniter_profiler table tr td code .line-break { float: left; width: 100%; }
+
+/* Resizeable UI */
+.ui-icon { width: 16px; height: 16px; background-image: url(http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/images/ui-icons_222222_256x240.png)/*{iconsContent}*/; }
+.ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-e { cursor: e-resize; width: 10px; right: 0px; top: 0px; bottom: 0px; background: #3a3839; background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzNhMzgzOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxOTE4MTkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top,  #3a3839 0%, #191819 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3a3839), color-stop(100%,#191819)); background: -webkit-linear-gradient(top,  #3a3839 0%,#191819 100%);  background: -o-linear-gradient(top,  #3a3839 0%,#191819 100%);  background: -ms-linear-gradient(top,  #3a3839 0%,#191819 100%);  background: linear-gradient(to bottom,  #3a3839 0%,#191819 100%);  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a3839', endColorstr='#191819',GradientType=0 ); }
+
+/* Tabs */
+.ui-accordion-icons { background: url('../img/double-arrow-left.png') 95% center no-repeat; }
+.ui-state-active { background: url('../img/double-arrow-right.png') 95% center no-repeat !important; }
