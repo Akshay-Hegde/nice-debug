@@ -12,11 +12,32 @@ class Events_Nice_debug
 
         // register the events
         Events::register('public_controller', array($this, 'public_controller'));
-        Events::register('admin_controller', array($this, 'public_controller'));
+        Events::register('admin_controller', array($this, 'admin_controller'));
 
     }
 
     public function public_controller()
+    {
+        // append jquery library if not already included
+        if ($this->ci->settings->get('nb_jquery') == "yes") {
+            $this->ci->template->append_metadata("<script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>");
+        }
+
+        // append jquery ui library if not already included
+        if ($this->ci->settings->get('nb_jquery_ui') == "yes") {
+            $this->ci->template->append_metadata("<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js'></script>");
+        }
+
+        $this->enable_nice_debug();
+    }
+
+    public function admin_controller()
+    {
+         $this->enable_nice_debug();
+    }
+
+
+    public function enable_nice_debug()
     {
 
         if ((isset($this->ci->current_user->group) AND $this->ci->current_user->group == 'admin')) {
@@ -26,17 +47,25 @@ class Events_Nice_debug
             }
             Asset::add_path('nice_debug', $dir . 'nice_debug/');
 
-            //append nice debug css and js
+            // add iframe (if enabled)
+            if ($this->ci->settings->get('nb_iframe_title')) {
+                $this->ci->template->append_metadata("<script> var isInIframe = (window.location != window.parent.location) ? true : false; function add_nb_iframe(){ if (! isInIframe) { $('#log-padding').append(\"<h3>".$this->ci->settings->get('nb_iframe_title')."</h3><div class='pln'><iframe class='nice_debug_frame' src='".$this->ci->settings->get('nb_iframe_location')."' id='adminFrame'/></div>\"); } } </script>");
+            }
+
+            // append nice debug css and js
             $this->ci->template->append_css("nice_debug::nice_debug.css");
             $this->ci->template->append_js("nice_debug::nice_debug.js");
-            //append google prettify css and js (select only one css file at a time)
-            $this->ci->template->append_css("nice_debug::github.css");
-            //$this->ci->template->append_css("nice_debug::laravel.css");
-            //$this->ci->template->append_css("nice_debug::hemisu-light.css");
-            //$this->ci->template->append_css("nice_debug::hemisu-dark.css");
-            //$this->ci->template->append_css("nice_debug::tomorrow-night-bright.css");
+
+            // append theme
+            $this->ci->template->append_css("nice_debug::".$this->ci->settings->get('nb_theme').".css");
+
+            // append google prettify js
             $this->ci->template->append_js("nice_debug::prettify.js");
-            //enable profiler
+
+            // append cookie to remember if nice debug is open or closed
+            $this->ci->template->append_js("nice_debug::jquery.cookie.js");
+
+            // enable profiler
             $this->ci->output->enable_profiler(TRUE);
         }
     }
