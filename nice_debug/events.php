@@ -39,8 +39,9 @@ class Events_Nice_debug
 
     public function enable_nice_debug()
     {
-
-        if ((isset($this->ci->current_user->group) AND $this->ci->current_user->group == 'admin')) {
+        // admin only accounts
+        if ((isset($this->ci->current_user->group) AND $this->ci->current_user->group == 'admin'))
+        {
             $dir = ADDONPATH.'/modules/';
             if ( file_exists(SHARED_ADDONPATH.'modules/nice_debug/details.php') ) {
                 $dir = SHARED_ADDONPATH.'modules/';
@@ -51,6 +52,10 @@ class Events_Nice_debug
             if ($this->ci->settings->get('nb_iframe_title')) {
                 $this->ci->template->append_metadata("<script> var isInIframe = (window.location != window.parent.location) ? true : false; function add_nb_iframe(){ if (! isInIframe) { $('#log-padding').append(\"<h3>".$this->ci->settings->get('nb_iframe_title')."</h3><div class='pln'><iframe class='nice_debug_frame' src='".$this->ci->settings->get('nb_iframe_location')."' id='adminFrame'/></div>\"); } } </script>");
             }
+
+            // append hover intent and easing
+            $this->ci->template->append_js("nice_debug::hover-intent.js");
+            $this->ci->template->append_js("nice_debug::easing.js");
 
             // append nice debug css and js
             $this->ci->template->append_css("nice_debug::nice_debug.css");
@@ -64,7 +69,7 @@ class Events_Nice_debug
 
             // append cookie to remember if nice debug is open or closed
             $this->ci->template->append_js("nice_debug::jquery.cookie.js");
-
+            
             // enable profiler
             $this->ci->output->enable_profiler(TRUE);
         }
