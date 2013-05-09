@@ -10,9 +10,11 @@ class Events_Nice_debug
 
         $this->ci =& get_instance();
 
-        // register the events
-        Events::register('public_controller', array($this, 'public_controller'));
-        Events::register('admin_controller', array($this, 'admin_controller'));
+        if (! $this->ci->input->is_ajax_request()) {
+            // register the events
+            Events::register('public_controller', array($this, 'public_controller'));
+            Events::register('admin_controller', array($this, 'admin_controller'));
+        }
 
     }
 
@@ -40,8 +42,7 @@ class Events_Nice_debug
     public function enable_nice_debug()
     {
         // admin only accounts
-        if ((isset($this->ci->current_user->group) AND $this->ci->current_user->group == 'admin'))
-        {
+        if ((isset($this->ci->current_user->group) AND $this->ci->current_user->group == 'admin')) {
             $dir = ADDONPATH.'/modules/';
             if ( file_exists(SHARED_ADDONPATH.'modules/nice_debug/details.php') ) {
                 $dir = SHARED_ADDONPATH.'modules/';
@@ -69,7 +70,7 @@ class Events_Nice_debug
 
             // append cookie to remember if nice debug is open or closed
             $this->ci->template->append_js("nice_debug::jquery.cookie.js");
-            
+
             // enable profiler
             $this->ci->output->enable_profiler(TRUE);
         }
