@@ -51,7 +51,7 @@ class Events_Nice_debug
 
             // add iframe (if enabled)
             if ($this->ci->settings->get('nb_iframe_title')) {
-                $this->ci->template->append_metadata("<script> var isInIframe = (window.location != window.parent.location) ? true : false; function add_nb_iframe(){ if (! isInIframe) { $('#log-padding').append(\"<h3>".$this->ci->settings->get('nb_iframe_title')."</h3><div class='pln'><iframe class='nice_debug_frame' src='".$this->ci->settings->get('nb_iframe_location')."' id='adminFrame'/></div>\"); } } </script>");
+                $this->ci->template->append_metadata("<script> var isInIframe = (window.location != window.parent.location) ? true : false; function add_nb_iframe(){ if (! isInIframe) { $('#log-padding').append(\"<span class='h3'>".$this->ci->settings->get('nb_iframe_title')."</span><div class='pln'><iframe class='nice_debug_frame' src='".$this->ci->settings->get('nb_iframe_location')."' id='adminFrame'/></div>\"); } } </script>");
             }
 
             // append hover intent and easing

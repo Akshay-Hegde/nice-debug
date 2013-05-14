@@ -6,8 +6,8 @@
 #codeigniter_profiler > #profiler_arrow { position: absolute; right: 0px; top: 0px; bottom: 0px; width: 20px; z-index: 999999; cursor: pointer; }
 #codeigniter_profiler > #profiler_arrow > #arrow_icon { position: absolute; right: 0px; top: 50%; height: 20px; width: 10px; background: url('../img/double-arrow-right.png') no-repeat; z-index: 999999; cursor: pointer; }
 #codeigniter_profiler > #profiler_close { position: absolute; right: 0px; top: 50%; height: 20px; width: 10px; background: url('../img/double-arrow-left.png') no-repeat; z-index: 999999; cursor: pointer; display: none; }
-#codeigniter_profiler > h1 { width: auto !important; background: none !important; height: auto !important; font-family: arial; margin: 10px 0px 0px -10px; padding: 0px 10px 5px 10px; font-size: 14px; line-height: 18px; font-weight: bold; }
-#log-padding > h3 { cursor: pointer; font-family: Arial; font-size: 13px; font-weight: bold; line-height: 14px; margin: 5px 0 0; padding: 10px; width: 100%; }
+#codeigniter_profiler > .h1 { float: left; width: auto !important; background: none !important; height: auto !important; font-family: arial; margin: 10px 0px 0px -10px; padding: 0px 10px 5px 10px; font-size: 14px; line-height: 18px; font-weight: bold; }
+#log-padding > .h3 { float: left; cursor: pointer; font-family: Arial; font-size: 13px; font-weight: bold; line-height: 14px; margin: 5px 0 0; padding: 10px; width: 100%; }
 #codeigniter_profiler table { float: left; border-collapse: collapse; border: 0px; margin: 5px 0; }
 #codeigniter_profiler table tbody { float: left; width: 100%; }
 #codeigniter_profiler table tbody tr { float: left; width: 100%; border: 0px !important; margin-bottom: 4px; background: transparent; }

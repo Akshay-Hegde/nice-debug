@@ -15,7 +15,7 @@ $(function(){
 		$('#log').wrapInner('<div id="log-padding" />');
 		//add title
 		$('#codeigniter_profiler').prepend('<div class="head-divider"></div>');
-		$('#codeigniter_profiler').prepend('<h1><span class="pln">nice<span><span class="pun">::</span><span class="str">debug</span></h1>');
+		$('#codeigniter_profiler').prepend('<span class="h1"><span class="pln">nice<span><span class="pun">::</span><span class="str">debug</span></span>');
 		//add background right arrow
 		$('#codeigniter_profiler').append('<div id="profiler_arrow"></div>');
 		$('#profiler_arrow').append('<div id="arrow_icon"></div>');
@@ -103,11 +103,11 @@ $(function(){
 		//replace legends with h3 and remove show/hide
 		$('#codeigniter_profiler legend').each(function(object){
 			var titleContent = $(this).html();
-			$(this).replaceWith("<h3>" + titleContent + "</h3>");
+			$(this).replaceWith("<span class='h3'>" + titleContent + "</span>");
 		});
 	
 		//clean up headers
-		$('#codeigniter_profiler h3').each(function(object){
+		$('#codeigniter_profiler .h3').each(function(object){
 			$(this).find('span').remove();
 			$(this).html($(this).html().replace(/&nbsp;/g, ' '));
 			$(this).html($(this).html().replace('()', ''));
@@ -116,8 +116,8 @@ $(function(){
 		add_nb_iframe();
 
 		//style the headers
-		$('#codeigniter_profiler h3').css('color', textColor);	
-		$('#codeigniter_profiler h3').css('border-bottom', "1px solid "+borderColor);	
+		$('#codeigniter_profiler .h3').css('color', textColor);	
+		$('#codeigniter_profiler .h3').css('border-bottom', "1px solid "+borderColor);	
 	
 		//remove fieldsets
 		$('#codeigniter_profiler fieldset').each(function(object){
