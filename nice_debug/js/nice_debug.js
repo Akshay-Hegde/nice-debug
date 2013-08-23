@@ -24,14 +24,14 @@ $(function(){
 		//make resizeable
 		$('#codeigniter_profiler').resizable({ handles:'e', ghost: true, minWidth: 380, maxWidth: ($('body').width() - 1), stop: function( event, ui ) { createCookie(); $('iframe.nice_debug_frame').show(); },  resize: function( event, ui ) { $('iframe.nice_debug_frame').hide(); } });
 		//add slide in
-    	$('#codeigniter_profiler #profiler_arrow').live("click", function(event){
+    	$(document).on("click",'#codeigniter_profiler #profiler_arrow',function(event){
 			$('#codeigniter_profiler').animate({ 'left': '+='+($('#codeigniter_profiler').outerWidth()-10) }, 1000);
 			$('#codeigniter_profiler #profiler_arrow').css("display","none");
 			$('#codeigniter_profiler #profiler_close').css("display","block");
 			createCookie();
     	});
     	//add slide out
-    	$('#codeigniter_profiler #profiler_close').live("click", function(event){
+    	$(document).on("click",'#codeigniter_profiler #profiler_close', function(event){
 			$('#codeigniter_profiler').animate({ 'left': '-='+($('#codeigniter_profiler').outerWidth()-10) }, 1000);
 			$('#codeigniter_profiler #profiler_arrow').css("display","block");
 			$('#codeigniter_profiler #profiler_close').css("display","none");
